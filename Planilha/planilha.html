@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planilha</title>
+    <style>
+    *{
+        margin: auto;
+        padding: 0;
+    }
+    
+    body{
+        background-color: #035a2e;
+    }
+    
+    .planilha{
+        text-align: center;
+        background-color: #34a223;
+    }
+    
+    .center{
+        text-align: center;
+    }
+    
+    .titulo{
+        display: flex;
+        justify-content: flex-start;
+        background-color: rgba(52, 158, 49, 0.685);
+    }
+    
+    .total{
+        background-color: #a22323;
+    }
+    
+    .meses{
+        width: 8%;
+        background-color: #2373a2;
+    }
+    
+    .linha1{
+        background-color: #87CEEb;
+    }
+    
+    input {
+        width: 98%;
+        height: 15px;
+        background-color: rgb(32, 138, 73);
+    } 
+    </style>
+</head>
+<body>
+    <header> 
+        <h1 class="planilha">Planilha</h1>
+    </header>
+    <main>
+        <table>
+            <tr class="linha1">
+                <th class="titulo"><h2>Receita(R)</h2></th>
+                <th onclick="janeiro()" class="meses">Janeiro</th>
+                <th onclick="fevereiro()" class="meses">Fevereiro</th>
+                <th onclick="marco()" class="meses">Março</th>
+                <th onclick="abril()" class="meses">Abril</th>
+                <th onclick="maio()" class="meses">Maio</th>
+                <th onclick="junho()" class="meses">Junho</th>
+                <th onclick="julho()" class="meses">Julho</th>
+                <th onclick="agosto()" class="meses">Agosto</th>
+                <th onclick="setembro()" class="meses">Setembro</th>
+                <th onclick="outubro()" class="meses">Outubro</th>
+                <th onclick="novembro()" class="meses">Novembro</th>
+                <th onclick="dezembro()" class="meses">Dezembro</th>
+            </tr>
+            <tr>
+                <td class="titulo">Salário</td>
+                <td><input id="salario1" type="number"></td>
+                <td><input id="salario2" type="number"></td>
+                <td><input id="salario3" type="number"></td>
+                <td><input id="salario4" type="number"></td>
+                <td><input id="salario5" type="number"></td>
+                <td><input id="salario6" type="number"></td>
+                <td><input id="salario7" type="number"></td>
+                <td><input id="salario8" type="number"></td>
+                <td><input id="salario9" type="number"></td>
+                <td><input id="salario10" type="number"></td>
+                <td><input id="salario11" type="number"></td>
+                <td><input id="salario12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Salário Cônjuge</td>
+                <td><input id="conjuge1" type="number"></td>
+                <td><input id="conjuge2" type="number"></td>
+                <td><input id="conjuge3" type="number"></td>
+                <td><input id="conjuge4" type="number"></td>
+                <td><input id="conjuge5" type="number"></td>
+                <td><input id="conjuge6" type="number"></td>
+                <td><input id="conjuge7" type="number"></td>
+                <td><input id="conjuge8" type="number"></td>
+                <td><input id="conjuge9" type="number"></td>
+                <td><input id="conjuge10" type="number"></td>
+                <td><input id="conjuge11" type="number"></td>
+                <td><input id="conjuge12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Transferências(Aplic., Resg., TED...)</td>
+                <td><input id="transferencias1" type="number"></td>
+                <td><input id="transferencias2" type="number"></td>
+                <td><input id="transferencias3" type="number"></td>
+                <td><input id="transferencias4" type="number"></td>
+                <td><input id="transferencias5" type="number"></td>
+                <td><input id="transferencias6" type="number"></td>
+                <td><input id="transferencias7" type="number"></td>
+                <td><input id="transferencias8" type="number"></td>
+                <td><input id="transferencias9" type="number"></td>
+                <td><input id="transferencias10" type="number"></td>
+                <td><input id="transferencias11" type="number"></td>
+                <td><input id="transferencias12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Outros(Alugéis; Pensão)</td>
+                <td><input id="outros1" type="number"></td>
+                <td><input id="outros2" type="number"></td>
+                <td><input id="outros3" type="number"></td>
+                <td><input id="outros4" type="number"></td>
+                <td><input id="outros5" type="number"></td>
+                <td><input id="outros6" type="number"></td>
+                <td><input id="outros7" type="number"></td>
+                <td><input id="outros8" type="number"></td>
+                <td><input id="outros9" type="number"></td>
+                <td><input id="outros10" type="number"></td>
+                <td><input id="outros11" type="number"></td>
+                <td><input id="outros12" type="number"></td>
+            </tr>
+            <tr>
+                <th class="total"><h3>Receita Total</h3></th>
+                <th><h3 id="total1">R$ -</h3></th>
+                <th><h3 id="total2">R$ -</h3></th>
+                <th><h3 id="total3">R$ -</h3></th>
+                <th><h3 id="total4">R$ -</h3></th>
+                <th><h3 id="total5">R$ -</h3></th>
+                <th><h3 id="total6">R$ -</h3></th>
+                <th><h3 id="total7">R$ -</h3></th>
+                <th><h3 id="total8">R$ -</h3></th>
+                <th><h3 id="total9">R$ -</h3></th>
+                <th><h3 id="total10">R$ -</h3></th>
+                <th><h3 id="total11">R$ -</h3></th>
+                <th><h3 id="total12">R$ -</h3></th>
+            </tr>
+            <tr class="linha1">
+                <th class="titulo"><h2>Despesas Essenciais(D1)</h2></th>
+            </tr>
+            <tr>
+                <td class="titulo">Condominio</td>
+                <td><input id="condominio1" type="number"></td>
+                <td><input id="condominio2" type="number"></td>
+                <td><input id="condominio3" type="number"></td>
+                <td><input id="condominio4" type="number"></td>
+                <td><input id="condominio5" type="number"></td>
+                <td><input id="condominio6" type="number"></td>
+                <td><input id="condominio7" type="number"></td>
+                <td><input id="condominio8" type="number"></td>
+                <td><input id="condominio9" type="number"></td>
+                <td><input id="condominio10" type="number"></td>
+                <td><input id="condominio11" type="number"></td>
+                <td><input id="condominio12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Aluguel</td>
+                <td><input id="aluguel1" type="number"></td>
+                <td><input id="aluguel2" type="number"></td>
+                <td><input id="aluguel3" type="number"></td>
+                <td><input id="aluguel4" type="number"></td>
+                <td><input id="aluguel5" type="number"></td>
+                <td><input id="aluguel6" type="number"></td>
+                <td><input id="aluguel7" type="number"></td>
+                <td><input id="aluguel8" type="number"></td>
+                <td><input id="aluguel9" type="number"></td>
+                <td><input id="aluguel10" type="number"></td>
+                <td><input id="aluguel11" type="number"></td>
+                <td><input id="aluguel12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Transporte</td>
+                <td><input id="transporte1" type="number"></td>
+                <td><input id="transporte2" type="number"></td>
+                <td><input id="transporte3" type="number"></td>
+                <td><input id="transporte4" type="number"></td>
+                <td><input id="transporte5" type="number"></td>
+                <td><input id="transporte6" type="number"></td>
+                <td><input id="transporte7" type="number"></td>
+                <td><input id="transporte8" type="number"></td>
+                <td><input id="transporte9" type="number"></td>
+                <td><input id="transporte10" type="number"></td>
+                <td><input id="transporte11" type="number"></td>
+                <td><input id="transporte12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Alimentação</td>
+                <td><input id="alimentacao1" type="number"></td>
+                <td><input id="alimentacao2" type="number"></td>
+                <td><input id="alimentacao3" type="number"></td>
+                <td><input id="alimentacao4" type="number"></td>
+                <td><input id="alimentacao5" type="number"></td>
+                <td><input id="alimentacao6" type="number"></td>
+                <td><input id="alimentacao7" type="number"></td>
+                <td><input id="alimentacao8" type="number"></td>
+                <td><input id="alimentacao9" type="number"></td>
+                <td><input id="alimentacao10" type="number"></td>
+                <td><input id="alimentacao11" type="number"></td>
+                <td><input id="alimentacao12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Luz</td>
+                <td><input id="luz1" type="number"></td>
+                <td><input id="luz2" type="number"></td>
+                <td><input id="luz3" type="number"></td>
+                <td><input id="luz4" type="number"></td>
+                <td><input id="luz5" type="number"></td>
+                <td><input id="luz6" type="number"></td>
+                <td><input id="luz7" type="number"></td>
+                <td><input id="luz8" type="number"></td>
+                <td><input id="luz9" type="number"></td>
+                <td><input id="luz10" type="number"></td>
+                <td><input id="luz11" type="number"></td>
+                <td><input id="luz12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Água</td>
+                <td><input id="agua1" type="number"></td>
+                <td><input id="agua2" type="number"></td>
+                <td><input id="agua3" type="number"></td>
+                <td><input id="agua4" type="number"></td>
+                <td><input id="agua5" type="number"></td>
+                <td><input id="agua6" type="number"></td>
+                <td><input id="agua7" type="number"></td>
+                <td><input id="agua8" type="number"></td>
+                <td><input id="agua9" type="number"></td>
+                <td><input id="agua10" type="number"></td>
+                <td><input id="agua11" type="number"></td>
+                <td><input id="agua12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Internet</td>
+                <td><input id="internet1" type="number"></td>
+                <td><input id="internet2" type="number"></td>
+                <td><input id="internet3" type="number"></td>
+                <td><input id="internet4" type="number"></td>
+                <td><input id="internet5" type="number"></td>
+                <td><input id="internet6" type="number"></td>
+                <td><input id="internet7" type="number"></td>
+                <td><input id="internet8" type="number"></td>
+                <td><input id="internet9" type="number"></td>
+                <td><input id="internet10" type="number"></td>
+                <td><input id="internet11" type="number"></td>
+                <td><input id="internet12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Transferências(Aplic., Resg., TED...)</td>
+                <td><input id="Transferencias1" type="number"></td>
+                <td><input id="Transferencias2" type="number"></td>
+                <td><input id="Transferencias3" type="number"></td>
+                <td><input id="Transferencias4" type="number"></td>
+                <td><input id="Transferencias5" type="number"></td>
+                <td><input id="Transferencias6" type="number"></td>
+                <td><input id="Transferencias7" type="number"></td>
+                <td><input id="Transferencias8" type="number"></td>
+                <td><input id="Transferencias9" type="number"></td>
+                <td><input id="Transferencias10" type="number"></td>
+                <td><input id="Transferencias11" type="number"></td>
+                <td><input id="Transferencias12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Vila Amalfi</td>
+                <td><input id="amalfi1" type="number"></td>
+                <td><input id="amalfi2" type="number"></td>
+                <td><input id="amalfi3" type="number"></td>
+                <td><input id="amalfi4" type="number"></td>
+                <td><input id="amalfi5" type="number"></td>
+                <td><input id="amalfi6" type="number"></td>
+                <td><input id="amalfi7" type="number"></td>
+                <td><input id="amalfi8" type="number"></td>
+                <td><input id="amalfi9" type="number"></td>
+                <td><input id="amalfi10" type="number"></td>
+                <td><input id="amalfi11" type="number"></td>
+                <td><input id="amalfi12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Cartão de crédito</td>
+                <td><input id="cartao1" type="number"></td>
+                <td><input id="cartao2" type="number"></td>
+                <td><input id="cartao3" type="number"></td>
+                <td><input id="cartao4" type="number"></td>
+                <td><input id="cartao5" type="number"></td>
+                <td><input id="cartao6" type="number"></td>
+                <td><input id="cartao7" type="number"></td>
+                <td><input id="cartao8" type="number"></td>
+                <td><input id="cartao9" type="number"></td>
+                <td><input id="cartao10" type="number"></td>
+                <td><input id="cartao11" type="number"></td>
+                <td><input id="cartao12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Diarista</td>
+                <td><input id="diarista1" type="number"></td>
+                <td><input id="diarista2" type="number"></td>
+                <td><input id="diarista3" type="number"></td>
+                <td><input id="diarista4" type="number"></td>
+                <td><input id="diarista5" type="number"></td>
+                <td><input id="diarista6" type="number"></td>
+                <td><input id="diarista7" type="number"></td>
+                <td><input id="diarista8" type="number"></td>
+                <td><input id="diarista9" type="number"></td>
+                <td><input id="diarista10" type="number"></td>
+                <td><input id="diarista11" type="number"></td>
+                <td><input id="diarista12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Manutenção apto</td>
+                <td><input id="manutencao1" type="number"></td>
+                <td><input id="manutencao2" type="number"></td>
+                <td><input id="manutencao3" type="number"></td>
+                <td><input id="manutencao4" type="number"></td>
+                <td><input id="manutencao5" type="number"></td>
+                <td><input id="manutencao6" type="number"></td>
+                <td><input id="manutencao7" type="number"></td>
+                <td><input id="manutencao8" type="number"></td>
+                <td><input id="manutencao9" type="number"></td>
+                <td><input id="manutencao10" type="number"></td>
+                <td><input id="manutencao11" type="number"></td>
+                <td><input id="manutencao12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Empréstimo</td>
+                <td><input id="emprestimo1" type="number"></td>
+                <td><input id="emprestimo2" type="number"></td>
+                <td><input id="emprestimo3" type="number"></td>
+                <td><input id="emprestimo4" type="number"></td>
+                <td><input id="emprestimo5" type="number"></td>
+                <td><input id="emprestimo6" type="number"></td>
+                <td><input id="emprestimo7" type="number"></td>
+                <td><input id="emprestimo8" type="number"></td>
+                <td><input id="emprestimo9" type="number"></td>
+                <td><input id="emprestimo10" type="number"></td>
+                <td><input id="emprestimo11" type="number"></td>
+                <td><input id="emprestimo12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Saques</td>
+                <td><input id="saques1" type="number"></td>
+                <td><input id="saques2" type="number"></td>
+                <td><input id="saques3" type="number"></td>
+                <td><input id="saques4" type="number"></td>
+                <td><input id="saques5" type="number"></td>
+                <td><input id="saques6" type="number"></td>
+                <td><input id="saques7" type="number"></td>
+                <td><input id="saques8" type="number"></td>
+                <td><input id="saques9" type="number"></td>
+                <td><input id="saques10" type="number"></td>
+                <td><input id="saques11" type="number"></td>
+                <td><input id="saques12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Outros</td>
+                <td><input id="Outros1" type="number"></td>
+                <td><input id="Outros2" type="number"></td>
+                <td><input id="Outros3" type="number"></td>
+                <td><input id="Outros4" type="number"></td>
+                <td><input id="Outros5" type="number"></td>
+                <td><input id="Outros6" type="number"></td>
+                <td><input id="Outros7" type="number"></td>
+                <td><input id="Outros8" type="number"></td>
+                <td><input id="Outros9" type="number"></td>
+                <td><input id="Outros10" type="number"></td>
+                <td><input id="Outros11" type="number"></td>
+                <td><input id="Outros12" type="number"></td>
+            </tr>
+            <tr>
+                <th class="titulo"><h3 class="total">Despesas Essenciais</h3></th>
+                <th><h3 id="essenciais1">R$ -</h3></th>
+                <th><h3 id="essenciais2">R$ -</h3></th>
+                <th><h3 id="essenciais3">R$ -</h3></th>
+                <th><h3 id="essenciais4">R$ -</h3></th>
+                <th><h3 id="essenciais5">R$ -</h3></th>
+                <th><h3 id="essenciais6">R$ -</h3></th>
+                <th><h3 id="essenciais7">R$ -</h3></th>
+                <th><h3 id="essenciais8">R$ -</h3></th>
+                <th><h3 id="essenciais9">R$ -</h3></th>
+                <th><h3 id="essenciais10">R$ -</h3></th>
+                <th><h3 id="essenciais11">R$ -</h3></th>
+                <th><h3 id="essenciais12">R$ -</h3></th>
+            </tr>
+            <tr class="linha1">
+                <th class="titulo"><h2>Despesas Não Essenciais(D2)</h2></th>
+            </tr>
+            <tr>
+                <td class="titulo">Academia</td>
+                <td><input id="academia1" type="number"></td>
+                <td><input id="academia2" type="number"></td>
+                <td><input id="academia3" type="number"></td>
+                <td><input id="academia4" type="number"></td>
+                <td><input id="academia5" type="number"></td>
+                <td><input id="academia6" type="number"></td>
+                <td><input id="academia7" type="number"></td>
+                <td><input id="academia8" type="number"></td>
+                <td><input id="academia9" type="number"></td>
+                <td><input id="academia10" type="number"></td>
+                <td><input id="academia11" type="number"></td>
+                <td><input id="academia12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Estudos</td>
+                <td><input id="estudos1" type="number"></td>
+                <td><input id="estudos2" type="number"></td>
+                <td><input id="estudos3" type="number"></td>
+                <td><input id="estudos4" type="number"></td>
+                <td><input id="estudos5" type="number"></td>
+                <td><input id="estudos6" type="number"></td>
+                <td><input id="estudos7" type="number"></td>
+                <td><input id="estudos8" type="number"></td>
+                <td><input id="estudos9" type="number"></td>
+                <td><input id="estudos10" type="number"></td>
+                <td><input id="estudos11" type="number"></td>
+                <td><input id="estudos12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Alimentação (Gastos extras)</td>
+                <td><input id="alimentoExtra1" type="number"></td>
+                <td><input id="alimentoExtra2" type="number"></td>
+                <td><input id="alimentoExtra3" type="number"></td>
+                <td><input id="alimentoExtra4" type="number"></td>
+                <td><input id="alimentoExtra5" type="number"></td>
+                <td><input id="alimentoExtra6" type="number"></td>
+                <td><input id="alimentoExtra7" type="number"></td>
+                <td><input id="alimentoExtra8" type="number"></td>
+                <td><input id="alimentoExtra9" type="number"></td>
+                <td><input id="alimentoExtra10" type="number"></td>
+                <td><input id="alimentoExtra11" type="number"></td>
+                <td><input id="alimentoExtra12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Celular (Mensalidade)</td>
+                <td><input id="celular1" type="number"></td>
+                <td><input id="celular2" type="number"></td>
+                <td><input id="celular3" type="number"></td>
+                <td><input id="celular4" type="number"></td>
+                <td><input id="celular5" type="number"></td>
+                <td><input id="celular6" type="number"></td>
+                <td><input id="celular7" type="number"></td>
+                <td><input id="celular8" type="number"></td>
+                <td><input id="celular9" type="number"></td>
+                <td><input id="celular10" type="number"></td>
+                <td><input id="celular11" type="number"></td>
+                <td><input id="celular12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Assinaturas Mensais</td>
+                <td><input id="assinaturas1" type="number"></td>
+                <td><input id="assinaturas2" type="number"></td>
+                <td><input id="assinaturas3" type="number"></td>
+                <td><input id="assinaturas4" type="number"></td>
+                <td><input id="assinaturas5" type="number"></td>
+                <td><input id="assinaturas6" type="number"></td>
+                <td><input id="assinaturas7" type="number"></td>
+                <td><input id="assinaturas8" type="number"></td>
+                <td><input id="assinaturas9" type="number"></td>
+                <td><input id="assinaturas10" type="number"></td>
+                <td><input id="assinaturas11" type="number"></td>
+                <td><input id="assinaturas12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Entreterimento Mensal</td>
+                <td><input id="entreterimento1" type="number"></td>
+                <td><input id="entreterimento2" type="number"></td>
+                <td><input id="entreterimento3" type="number"></td>
+                <td><input id="entreterimento4" type="number"></td>
+                <td><input id="entreterimento5" type="number"></td>
+                <td><input id="entreterimento6" type="number"></td>
+                <td><input id="entreterimento7" type="number"></td>
+                <td><input id="entreterimento8" type="number"></td>
+                <td><input id="entreterimento9" type="number"></td>
+                <td><input id="entreterimento10" type="number"></td>
+                <td><input id="entreterimento11" type="number"></td>
+                <td><input id="entreterimento12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Dentista</td>
+                <td><input id="dentista1" type="number"></td>
+                <td><input id="dentista2" type="number"></td>
+                <td><input id="dentista3" type="number"></td>
+                <td><input id="dentista4" type="number"></td>
+                <td><input id="dentista5" type="number"></td>
+                <td><input id="dentista6" type="number"></td>
+                <td><input id="dentista7" type="number"></td>
+                <td><input id="dentista8" type="number"></td>
+                <td><input id="dentista9" type="number"></td>
+                <td><input id="dentista10" type="number"></td>
+                <td><input id="dentista11" type="number"></td>
+                <td><input id="dentista12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Mãe</td>
+                <td><input id="mae1" type="number"></td>
+                <td><input id="mae2" type="number"></td>
+                <td><input id="mae3" type="number"></td>
+                <td><input id="mae4" type="number"></td>
+                <td><input id="mae5" type="number"></td>
+                <td><input id="mae6" type="number"></td>
+                <td><input id="mae7" type="number"></td>
+                <td><input id="mae8" type="number"></td>
+                <td><input id="mae9" type="number"></td>
+                <td><input id="mae10" type="number"></td>
+                <td><input id="mae11" type="number"></td>
+                <td><input id="mae12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Outros.</td>
+                <td><input id="OutroS1" type="number"></td>
+                <td><input id="OutroS2" type="number"></td>
+                <td><input id="OutroS3" type="number"></td>
+                <td><input id="OutroS4" type="number"></td>
+                <td><input id="OutroS5" type="number"></td>
+                <td><input id="OutroS6" type="number"></td>
+                <td><input id="OutroS7" type="number"></td>
+                <td><input id="OutroS8" type="number"></td>
+                <td><input id="OutroS9" type="number"></td>
+                <td><input id="OutroS10" type="number"> </td>
+                <td><input id="OutroS11" type="number"></td>
+                <td><input id="OutroS12" type="number"></td>
+            </tr>
+            <tr>
+                <th class="titulo"><h3 class="total">Despesas Não Essenciais</h3></th>
+                <th><h3 id="naoEssenciais1"></h3></th>
+                <th><h3 id="naoEssenciais2"></h3></th>
+                <th><h3 id="naoEssenciais3"></h3></th>
+                <th><h3 id="naoEssenciais4"></h3></th>
+                <th><h3 id="naoEssenciais5"></h3></th>
+                <th><h3 id="naoEssenciais6"></h3></th>
+                <th><h3 id="naoEssenciais7"></h3></th>
+                <th><h3 id="naoEssenciais8"></h3></th>
+                <th><h3 id="naoEssenciais9"></h3></th>
+                <th><h3 id="naoEssenciais10"></h3></th>
+                <th><h3 id="naoEssenciais11"></h3></th>
+                <th><h3 id="naoEssenciais12"></h3></th>
+            </tr>
+            <tr class="linha1">
+                <th class="titulo"><h2>Reservas Mensais</h2></th>
+            </tr>
+            <tr>
+                <td class="titulo">Montante Investido no mês</td>
+                <td><input id="montante1" type="number"></td>
+                <td><input id="montante2" type="number"></td>
+                <td><input id="montante3" type="number"></td>
+                <td><input id="montante4" type="number"></td>
+                <td><input id="montante5" type="number"></td>
+                <td><input id="montante6" type="number"></td>
+                <td><input id="montante7" type="number"></td>
+                <td><input id="montante8" type="number"></td>
+                <td><input id="montante9" type="number"></td>
+                <td><input id="montante10" type="number"></td>
+                <td><input id="montante11" type="number"></td>
+                <td><input id="montante12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Total de Investimentos em Médio e Longo P.</td>
+                <td><input id="totalInvestido1" type="number"></td>
+                <td><input id="totalInvestido2" type="number"></td>
+                <td><input id="totalInvestido3" type="number"></td>
+                <td><input id="totalInvestido4" type="number"></td>
+                <td><input id="totalInvestido5" type="number"></td>
+                <td><input id="totalInvestido6" type="number"></td>
+                <td><input id="totalInvestido7" type="number"></td>
+                <td><input id="totalInvestido8" type="number"></td>
+                <td><input id="totalInvestido9" type="number"></td>
+                <td><input id="totalInvestido10" type="number"></td>
+                <td><input id="totalInvestido11" type="number"></td>
+                <td><input id="totalInvestido12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Total de Investimentos em Curto Prazo</td>
+                <td><input id="TotalInvestido1" type="number"></td>
+                <td><input id="TotalInvestido2" type="number"></td>
+                <td><input id="TotalInvestido3" type="number"></td>
+                <td><input id="TotalInvestido4" type="number"></td>
+                <td><input id="TotalInvestido5" type="number"></td>
+                <td><input id="TotalInvestido6" type="number"></td>
+                <td><input id="TotalInvestido7" type="number"></td>
+                <td><input id="TotalInvestido8" type="number"></td>
+                <td><input id="TotalInvestido9" type="number"></td>
+                <td><input id="TotalInvestido10" type="number"></td>
+                <td><input id="TotalInvestido11" type="number"></td>
+                <td><input id="TotalInvestido12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">% de Sobra</td>
+                <td><input id="sobra1" type="number"></td>
+                <td><input id="sobra2" type="number"></td>
+                <td><input id="sobra3" type="number"></td>
+                <td><input id="sobra4" type="number"></td>
+                <td><input id="sobra5" type="number"></td>
+                <td><input id="sobra6" type="number"></td>
+                <td><input id="sobra7" type="number"></td>
+                <td><input id="sobra8" type="number"></td>
+                <td><input id="sobra9" type="number"></td>
+                <td><input id="sobra10" type="number"></td>
+                <td><input id="sobra11" type="number"></td>
+                <td><input id="sobra12" type="number"></td>
+            </tr>
+            <tr>
+                <td class="titulo">Quanto Falta para o Fundo Emergência?</td>
+                <td><input id="fundoEmergencia1" type="number"></td>
+                <td><input id="fundoEmergencia2" type="number"></td>
+                <td><input id="fundoEmergencia3" type="number"></td>
+                <td><input id="fundoEmergencia4" type="number"></td>
+                <td><input id="fundoEmergencia5" type="number"></td>
+                <td><input id="fundoEmergencia6" type="number"></td>
+                <td><input id="fundoEmergencia7" type="number"></td>
+                <td><input id="fundoEmergencia8" type="number"></td>
+                <td><input id="fundoEmergencia9" type="number"></td>
+                <td><input id="fundoEmergencia10" type="number"></td>
+                <td><input id="fundoEmergencia11" type="number"></td>
+                <td><input id="fundoEmergencia12" type="number"></td>
+            </tr>
+            <tr>
+                <th class="linha1"><h3 class="total">Total Reservado</h3></th>
+                <td><h3 class="center" id="totalReservado1"></h3></td>
+                <td><h3 class="center" id="totalReservado2"></h3></td>
+                <td><h3 class="center" id="totalReservado3"></h3></td>
+                <td><h3 class="center" id="totalReservado4"></h3></td>
+                <td><h3 class="center" id="totalReservado5"></h3></td>
+                <td><h3 class="center" id="totalReservado6"></h3></td>
+                <td><h3 class="center" id="totalReservado7"></h3></td>
+                <td><h3 class="center" id="totalReservado8"></h3></td>
+                <td><h3 class="center" id="totalReservado9"></h3></td>
+                <td><h3 class="center" id="totalReservado10"></h3></td>
+                <td><h3 class="center" id="totalReservado11"></h3></td>
+                <td><h3 class="center" id="totalReservado12"></h3></td>                
+            </tr>
+            <tr>
+                <th class="linha1"><h3 class="total">Total Gasto</h3></th>
+                <td><h3 class="center" id="totalGasto1"></h3></td>
+                <td><h3 class="center" id="totalGasto2"></h3></td>
+                <td><h3 class="center" id="totalGasto3"></h3></td>
+                <td><h3 class="center" id="totalGasto4"></h3></td>
+                <td><h3 class="center" id="totalGasto5"></h3></td>
+                <td><h3 class="center" id="totalGasto6"></h3></td>
+                <td><h3 class="center" id="totalGasto7"></h3></td>
+                <td><h3 class="center" id="totalGasto8"></h3></td>
+                <td><h3 class="center" id="totalGasto9"></h3></td>
+                <td><h3 class="center" id="totalGasto10"></h3></td>
+                <td><h3 class="center" id="totalGasto11"></h3></td>
+                <td><h3 class="center" id="totalGasto12"></h3></td>
+            </tr>
+            <tr>
+                <th class="linha1"><h3 class="titulo">Sobra Mensal (R-D1-D2)</h3></th>
+                <td><h3 class="center" id="sobraMensal1"></h3></td>
+                <td><h3 class="center" id="sobraMensal2"></h3></td>
+                <td><h3 class="center" id="sobraMensal3"></h3></td>
+                <td><h3 class="center" id="sobraMensal4"></h3></td>
+                <td><h3 class="center" id="sobraMensal5"></h3></td>
+                <td><h3 class="center" id="sobraMensal6"></h3></td>
+                <td><h3 class="center" id="sobraMensal7"></h3></td>
+                <td><h3 class="center" id="sobraMensal8"></h3></td>
+                <td><h3 class="center" id="sobraMensal9"></h3></td>
+                <td><h3 class="center" id="sobraMensal10"></h3></td>
+                <td><h3 class="center" id="sobraMensal11"></h3></td>
+                <td><h3 class="center" id="sobraMensal12"></h3></td>
+            </tr>
+        </table>
+    </main>
+    <footer></footer>
+    <script>
+        //Receita
+        let salario = document.querySelectorAll('input#salario1, input#salario2, input#salario3, input#salario4, input#salario5, input#salario6, input#salario7, input#salario8, input#salario9, input#salario10, input#salario11, input#salario12');
+        let salarioConjuge = document.querySelectorAll('input#conjuge1, input#conjuge2, input#conjuge3, input#conjuge4, input#conjuge5, input#conjuge6, input#conjuge7, input#conjuge8, input#conjuge9, input#conjuge10, input#conjuge11, input#conjuge12');
+        let transferencias = document.querySelectorAll('input#transferencias1, input#transferencias2, input#transferencias3, input#transferencias4, input#transferencias5, input#transferencias6, input#transferencias7, input#transferencias8, input#transferencias9, input#transferencias10, input#transferencias11, input#transferencias12');
+        let outros = document.querySelectorAll('input#outros1, input#outros2, input#outros3, input#outros4, input#outros5, input#outros6, input#outros7, input#outros8, input#outros9, input#outros10, input#outros11, input#outros12');
+        let total = document.querySelectorAll('h3#total1, h3#total2, h3#total3, h3#total4, h3#total5, h3#total6, h3#total7, h3#total8, h3#total9, h3#total10, h3#total11, h3#total12');
+        
+        //Despesas Essenciais(D1)
+        let condominio = document.querySelectorAll('input#condominio1, input#condominio2, input#condominio3, input#condominio4, input#condominio5, input#condominio6, input#condominio7, input#condominio8, input#condominio9, input#condominio10, input#condominio11, input#condominio12');
+        let aluguel = document.querySelectorAll('input#aluguel1, input#aluguel2, input#aluguel3, input#aluguel4, input#aluguel5, input#aluguel6, input#aluguel7, input#aluguel8, input#aluguel9, input#aluguel10, input#aluguel11, input#aluguel12');
+        let transporte = document.querySelectorAll('input#transporte1, input#transporte2, input#transporte3, input#transporte4, input#transporte5, input#transporte6, input#transporte7, input#transporte8, input#transporte9, input#transporte10, input#transporte11, input#transporte12');
+        let alimentacao = document.querySelectorAll('input#alimentacao1, input#alimentacao2, input#alimentacao3, input#alimentacao4, input#alimentacao5, input#alimentacao6, input#alimentacao7, input#alimentacao8, input#alimentacao9, input#alimentacao10, input#alimentacao11, input#alimentacao12');
+        let luz = document.querySelectorAll('input#luz1, input#luz2, input#luz3, input#luz4, input#luz5, input#luz6, input#luz7, input#luz8, input#luz9, input#luz10, input#luz11, input#luz12');
+        let agua = document.querySelectorAll('input#agua1, input#agua2, input#agua3, input#agua4, input#agua5, input#agua6, input#agua7, input#agua8, input#agua9, input#agua10, input#agua11, input#agua12');
+        let internet = document.querySelectorAll('input#internet1, input#internet2, input#internet3, input#internet4, input#internet5, input#internet6, input#internet7, input#internet8, input#internet9, input#internet10, input#internet11, input#internet12');
+        let Transferencias = document.querySelectorAll('input#Transferencias1, input#Transferencias2, input#Transferencias3, input#Transferencias4, input#Transferencias5, input#Transferencias6, input#Transferencias7, input#Transferencias8, input#Transferencias9, input#Transferencias10, input#Transferencias11, input#Transferencias12');
+        let amalfi = document.querySelectorAll('input#amalfi1, input#amalfi2, input#amalfi3, input#amalfi4, input#amalfi5, input#amalfi6, input#amalfi7, input#amalfi8, input#amalfi9, input#amalfi10, input#amalfi11, input#amalfi12');
+        let cartao = document.querySelectorAll('input#cartao1, input#cartao2, input#cartao3, input#cartao4, input#cartao5, input#cartao6, input#cartao7, input#cartao8, input#cartao9, input#cartao10, input#cartao11, input#cartao12');
+        let diarista = document.querySelectorAll('input#diarista1, input#diarista2, input#diarista3, input#diarista4, input#diarista5, input#diarista6, input#diarista7, input#diarista8, input#diarista9, input#diarista10, input#diarista11, input#diarista12');
+        let manutencao = document.querySelectorAll('input#manutencao1, input#manutencao2, input#manutencao3, input#manutencao4, input#manutencao5, input#manutencao6, input#manutencao7, input#manutencao8, input#manutencao9, input#manutencao10, input#manutencao11, input#manutencao12');
+        let emprestimo = document.querySelectorAll('input#emprestimo1, input#emprestimo2, input#emprestimo3, input#emprestimo4, input#emprestimo5, input#emprestimo6, input#emprestimo7, input#emprestimo8, input#emprestimo9, input#emprestimo10, input#emprestimo11, input#emprestimo12');
+        let saques = document.querySelectorAll('input#saques1, input#saques2, input#saques3, input#saques4, input#saques5, input#saques6, input#saques7, input#saques8, input#saques9, input#saques10, input#saques11, input#saques12');
+        let Outros = document.querySelectorAll('input#Outros1, input#Outros2, input#Outros3, input#Outros4, input#Outros5, input#Outros6, input#Outros7, input#Outros8, input#Outros9, input#Outros10, input#Outros11, input#Outros12');
+        let essenciais = document.querySelectorAll('h3#essenciais1, h3#essenciais2, h3#essenciais3, h3#essenciais4, h3#essenciais5, h3#essenciais6, h3#essenciais7, h3#essenciais8, h3#essenciais9, h3#essenciais10, h3#essenciais11, h3#essenciais12');
+        
+        //Não Essenciais(D1)
+        let academia = document.querySelectorAll('input#academia1, input#academia2, input#academia3, input#academia4, input#academia5, input#academia6, input#academia7, input#academia8, input#academia9, input#academia10, input#academia11, input#academia12');
+        let estudos = document.querySelectorAll('input#estudos1, input#estudos2, input#estudos3, input#estudos4, input#estudos5, input#estudos6, input#estudos7, input#estudos8, input#estudos9, input#estudos10, input#estudos11, input#estudos12');
+        let alimentacaoExtra = document.querySelectorAll('input#alimentoExtra1, input#alimentoExtra2, input#alimentoExtra3, input#alimentoExtra4, input#alimentoExtra5, input#alimentoExtra6, input#alimentoExtra7, input#alimentoExtra8, input#alimentoExtra9, input#alimentoExtra10, input#alimentoExtra11, input#alimentoExtra12');
+        let celular = document.querySelectorAll('input#celular1, input#celular2, input#celular3, input#celular4, input#celular5, input#celular6, input#celular7, input#celular8, input#celular9, input#celular10, input#celular11, input#celular12');
+        let assinaturas = document.querySelectorAll('input#assinaturas1, input#assinaturas2, input#assinaturas3, input#assinaturas4, input#assinaturas5, input#assinaturas6, input#assinaturas7, input#assinaturas8, input#assinaturas9, input#assinaturas10, input#assinaturas11, input#assinaturas12');
+        let entreterimento = document.querySelectorAll('input#entreterimento1, input#entreterimento2, input#entreterimento3, input#entreterimento4, input#entreterimento5, input#entreterimento6, input#entreterimento7, input#entreterimento8, input#entreterimento9, input#entreterimento10, input#entreterimento11, input#entreterimento12');
+        let dentista = document.querySelectorAll('input#dentista1, input#dentista2, input#dentista3, input#dentista4, input#dentista5, input#dentista6, input#dentista7, input#dentista8, input#dentista9, input#dentista10, input#dentista11, input#dentista12');
+        let mae = document.querySelectorAll('input#mae1, input#mae2, input#mae3, input#mae4, input#mae5, input#mae6, input#mae7, input#mae8, input#mae9, input#mae10, input#mae11, input#mae12');
+        let OutroS = document.querySelectorAll('input#OutroS1, input#OutroS2, input#OutroS3, input#OutroS4, input#OutroS5, input#OutroS6, input#OutroS7, input#OutroS8, input#OutroS9, input#OutroS10, input#OutroS11, input#OutroS12');
+        let naoEssenciais = document.querySelectorAll('h3#naoEssenciais1, h3#naoEssenciais2, h3#naoEssenciais3, h3#naoEssenciais4, h3#naoEssenciais5, h3#naoEssenciais6, h3#naoEssenciais7, h3#naoEssenciais8, h3#naoEssenciais9, h3#naoEssenciais10, h3#naoEssenciais11, h3#naoEssenciais12');
+        
+        //Reserva mensal
+        let montante = document.querySelectorAll('input#montante1, input#montante2, input#montante3, input#montante4, input#montante5, input#montante6, input#montante7, input#montante8, input#montante9, input#montante10, input#montante11, input#montante12');
+        let totalInvestido = document.querySelectorAll('input#totalInvestido1, input#totalInvestido2, input#totalInvestido3, input#totalInvestido4, input#totalInvestido5, input#totalInvestido6, input#totalInvestido7, input#totalInvestido8, input#totalInvestido9, input#totalInvestido10, input#totalInvestido11, input#totalInvestido12');
+        let TotalInvestido = document.querySelectorAll('input#TotalInvestido1, input#TotalInvestido2, input#TotalInvestido3, input#TotalInvestido4, input#TotalInvestido5, input#TotalInvestido6, input#TotalInvestido7, input#TotalInvestido8, input#TotalInvestido9, input#TotalInvestido10, input#TotalInvestido11, input#TotalInvestido12');
+        let sobra = document.querySelectorAll('input#sobra1, input#sobra2, input#sobra3, input#sobra4, input#sobra5, input#sobra6, input#sobra7, input#sobra8, input#sobra9, input#sobra10, input#sobra11, input#sobra12');
+        let fundoEmergencia = document.querySelectorAll('input#fundoEmergencia1, input#fundoEmergencia2, input#fundoEmergencia3, input#fundoEmergencia4, input#fundoEmergencia5, input#fundoEmergencia6, input#fundoEmergencia7, input#fundoEmergencia8, input#fundoEmergencia9, input#fundoEmergencia10, input#fundoEmergencia11, input#fundoEmergencia12');
+        let totalReservado = document.querySelectorAll('input#totalReservado1, input#totalReservado2, input#totalReservado3, input#totalReservado4, input#totalReservado5, input#totalReservado6, input#totalReservado7, input#totalReservado8, input#totalReservado9, input#totalReservado10, input#totalReservado11, input#totalReservado12');
+        let totalGasto = document.querySelectorAll('input#totalGasto1, input#totalGasto2, input#totalGasto3, input#totalGasto4, input#totalGasto5, input#totalGasto6, input#totalGasto7, input#totalGasto8, input#totalGasto9, input#totalGasto10, input#totalGasto11, input#totalGasto12');
+        let sobraMensal = document.querySelectorAll('h3#sobraMensal1, h3#sobraMensal2, h3#sobraMensal3, h3#sobraMensal4, h3#sobraMensal5, h3#sobraMensal6, h3#sobraMensal7, h3#sobraMensal8, h3#sobraMensal9, h3#sobraMensal10, h3#sobraMensal11, h3#sobraMensal12');
+        
+        function janeiro() {
+            let janeiro = total1.innerHTML = `R$${Number(salario1.value) + Number(conjuge1.value) + Number(transferencias1.value) + Number(outros1.value)}`;
+            let janeiro1 = essenciais1.innerHTML = `R$${Number(condominio1.value) + Number(aluguel1.value) + Number(transporte1.value) + Number(alimentacao1.value) + Number(luz1.value) + Number(agua1.value) + Number(internet1.value) + Number(Transferencias1.value) + Number(amalfi1.value) + Number(cartao1.value) + Number(diarista1.value) + Number(manutencao1.value) + Number(emprestimo1.value) + Number(saques1.value) + Number(Outros1.value)}`;
+            let janeiro2 = naoEssenciais1.innerHTML = `R$${Number(academia1.value) + Number(estudos1.value) + Number(alimentoExtra1.value) + Number(celular1.value) + Number(assinaturas1.value) + Number(entreterimento1.value) + Number(dentista1.value) + Number(mae1.value) + Number(OutroS1.value)}`;
+            totalReservado1.innerHTML = `R$${Number(montante1.value) + Number(totalInvestido1.value) + Number(TotalInvestido1.value)}`;
+            totalGasto1.innerHTML = `R$${Number(janeiro1.split('R$')[1]) + Number(janeiro2.split('R$')[1])}`;
+            sobraMensal1.innerHTML = `R$${Number(janeiro.split('R$')[1]) - Number(janeiro1.split('R$')[1]) - Number(janeiro2.split('R$')[1])}`;
+        }
+        
+        function fevereiro() {
+            let fevereiro = total2.innerHTML = `R$${Number(salario2.value) + Number(conjuge2.value) + Number(transferencias2.value) + Number(outros2.value)}`;
+            let fevereiro1 = essenciais2.innerHTML = `R$${Number(condominio2.value) + Number(aluguel2.value) + Number(transporte2.value) + Number(alimentacao2.value) + Number(luz2.value) + Number(agua2.value) + Number(internet2.value) + Number(Transferencias2.value) + Number(amalfi2.value) + Number(cartao2.value) + Number(diarista2.value) + Number(manutencao2.value) + Number(emprestimo2.value) + Number(saques2.value) + Number(Outros2.value)}`;
+            let fevereiro2 = naoEssenciais2.innerHTML = `R$${Number(academia2.value) + Number(estudos2.value) + Number(alimentoExtra2.value) + Number(celular2.value) + Number(assinaturas2.value) + Number(entreterimento2.value) + Number(dentista2.value) + Number(mae2.value) + Number(OutroS2.value)}`;
+            totalReservado2.innerHTML = `R$${Number(montante2.value) + Number(totalInvestido2.value) + Number(TotalInvestido2.value)}`;
+            totalGasto2.innerHTML = `R$${Number(fevereiro1.split('R$')[1]) + Number(fevereiro2.split('R$')[1])}`;
+            sobraMensal2.innerHTML = `R$${Number(fevereiro.split('R$')[1]) - Number(fevereiro1.split('R$')[1]) - Number(fevereiro2.split('R$')[1])}`;
+        }
+        
+        function marco() {
+            let marco = total3.innerHTML = `R$${Number(salario3.value) + Number(conjuge3.value) + Number(transferencias3.value) + Number(outros3.value)}`;
+            let marco1 = essenciais3.innerHTML = `R$${Number(condominio3.value) + Number(aluguel3.value) + Number(transporte3.value) + Number(alimentacao3.value) + Number(luz3.value) + Number(agua3.value) + Number(internet3.value) + Number(Transferencias3.value) + Number(amalfi3.value) + Number(cartao3.value) + Number(diarista3.value) + Number(manutencao3.value) + Number(emprestimo3.value) + Number(saques3.value) + Number(Outros3.value)}`;
+            let marco2 = naoEssenciais3.innerHTML = `R$${Number(academia3.value) + Number(estudos3.value) + Number(alimentoExtra3.value) + Number(celular3.value) + Number(assinaturas3.value) + Number(entreterimento3.value) + Number(dentista3.value) + Number(mae3.value) + Number(OutroS3.value)}`;
+            totalReservado3.innerHTML = `R$${Number(montante3.value) + Number(totalInvestido3.value) + Number(TotalInvestido3.value)}`;
+            totalGasto3.innerHTML = `R$${Number(marco1.split('R$')[1]) + Number(marco2.split('R$')[1])}`;
+            sobraMensal3.innerHTML = `R$${Number(marco.split('R$')[1]) - Number(marco1.split('R$')[1]) - Number(marco2.split('R$')[1])}`;
+        }
+        
+        function abril() {
+            let abril = total4.innerHTML = `R$${Number(salario4.value) + Number(conjuge4.value) + Number(transferencias4.value) + Number(outros4.value)}`;
+            let abril1 = essenciais4.innerHTML = `R$${Number(condominio4.value) + Number(aluguel4.value) + Number(transporte4.value) + Number(alimentacao4.value) + Number(luz4.value) + Number(agua4.value) + Number(internet4.value) + Number(Transferencias4.value) + Number(amalfi4.value) + Number(cartao4.value) + Number(diarista4.value) + Number(manutencao4.value) + Number(emprestimo4.value) + Number(saques4.value) + Number(Outros4.value)}`;
+            let abril2 = naoEssenciais4.innerHTML = `R$${Number(academia4.value) + Number(estudos4.value) + Number(alimentoExtra4.value) + Number(celular4.value) + Number(assinaturas4.value) + Number(entreterimento4.value) + Number(dentista4.value) + Number(mae4.value) + Number(OutroS4.value)}`;
+            totalReservado4.innerHTML = `R$${Number(montante4.value) + Number(totalInvestido4.value) + Number(TotalInvestido4.value)}`;
+            totalGasto4.innerHTML = `R$${Number(abril1.split('R$')[1]) + Number(abril2.split('R$')[1])}`;
+            sobraMensal4.innerHTML = `R$${Number(abril.split('R$')[1]) - Number(abril1.split('R$')[1]) - Number(abril2.split('R$')[1])}`;
+        }
+        
+        function maio() {
+            let maio = total5.innerHTML = `R$${Number(salario5.value) + Number(conjuge5.value) + Number(transferencias5.value) + Number(outros5.value)}`;
+            let maio1 = essenciais5.innerHTML = `R$${Number(condominio5.value) + Number(aluguel5.value) + Number(transporte5.value) + Number(alimentacao5.value) + Number(luz5.value) + Number(agua5.value) + Number(internet5.value) + Number(Transferencias5.value) + Number(amalfi5.value) + Number(cartao5.value) + Number(diarista5.value) + Number(manutencao5.value) + Number(emprestimo5.value) + Number(saques5.value) + Number(Outros5.value)}`;
+            let maio2 = naoEssenciais5.innerHTML = `R$${Number(academia5.value) + Number(estudos5.value) + Number(alimentoExtra5.value) + Number(celular5.value) + Number(assinaturas5.value) + Number(entreterimento5.value) + Number(dentista5.value) + Number(mae5.value) + Number(OutroS5.value)}`;
+            totalReservado5.innerHTML = `R$${Number(montante5.value) + Number(totalInvestido5.value) + Number(TotalInvestido5.value)}`;
+            totalGasto5.innerHTML = `R$${Number(maio1.split('R$')[1]) + Number(maio2.split('R$')[1])}`;
+            sobraMensal5.innerHTML = `R$${Number(maio.split('R$')[1]) - Number(maio1.split('R$')[1]) - Number(maio2.split('R$')[1])}`;
+        }
+        
+        function junho() {
+            let junho = total6.innerHTML = `R$${Number(salario6.value) + Number(conjuge6.value) + Number(transferencias6.value) + Number(outros6.value)}`;
+            let junho1 = essenciais6.innerHTML = `R$${Number(condominio6.value) + Number(aluguel6.value) + Number(transporte6.value) + Number(alimentacao6.value) + Number(luz6.value) + Number(agua6.value) + Number(internet6.value) + Number(Transferencias6.value) + Number(amalfi6.value) + Number(cartao6.value) + Number(diarista6.value) + Number(manutencao6.value) + Number(emprestimo6.value) + Number(saques6.value) + Number(Outros6.value)}`;
+            let junho2 = naoEssenciais6.innerHTML = `R$${Number(academia6.value) + Number(estudos6.value) + Number(alimentoExtra6.value) + Number(celular6.value) + Number(assinaturas6.value) + Number(entreterimento6.value) + Number(dentista6.value) + Number(mae6.value) + Number(OutroS6.value)}`;
+            totalReservado6.innerHTML = `R$${Number(montante6.value) + Number(totalInvestido6.value) + Number(TotalInvestido6.value)}`;
+            totalGasto6.innerHTML = `R$${Number(junho1.split('R$')[1]) + Number(junho2.split('R$')[1])}`;
+            sobraMensal6.innerHTML = `R$${Number(junho.split('R$')[1]) - Number(junho1.split('R$')[1]) - Number(junho2.split('R$')[1])}`;
+        }
+        
+        function julho() {
+            let julho = total7.innerHTML = `R$${Number(salario7.value) + Number(conjuge7.value) + Number(transferencias7.value) + Number(outros7.value)}`;
+            let julho1 = essenciais7.innerHTML = `R$${Number(condominio7.value) + Number(aluguel7.value) + Number(transporte7.value) + Number(alimentacao7.value) + Number(luz7.value) + Number(agua7.value) + Number(internet7.value) + Number(Transferencias7.value) + Number(amalfi7.value) + Number(cartao7.value) + Number(diarista7.value) + Number(manutencao7.value) + Number(emprestimo7.value) + Number(saques7.value) + Number(Outros7.value)}`;
+            let julho2 = naoEssenciais7.innerHTML = `R$${Number(academia7.value) + Number(estudos7.value) + Number(alimentoExtra7.value) + Number(celular7.value) + Number(assinaturas7.value) + Number(entreterimento7.value) + Number(dentista7.value) + Number(mae7.value) + Number(OutroS7.value)}`;
+            totalReservado7.innerHTML = `R$${Number(montante7.value) + Number(totalInvestido7.value) + Number(TotalInvestido7.value)}`;
+            totalGasto7.innerHTML = `R$${Number(julho1.split('R$')[1]) + Number(julho2.split('R$')[1])}`;
+            sobraMensal7.innerHTML = `R$${Number(julho.split('R$')[1]) - Number(julho1.split('R$')[1]) - Number(julho2.split('R$')[1])}`;
+        }
+        
+        function agosto() {
+            let agosto = total8.innerHTML = `R$${Number(salario8.value) + Number(conjuge8.value) + Number(transferencias8.value) + Number(outros8.value)}`;
+            let agosto1 = essenciais8.innerHTML = `R$${Number(condominio8.value) + Number(aluguel8.value) + Number(transporte8.value) + Number(alimentacao8.value) + Number(luz8.value) + Number(agua8.value) + Number(internet8.value) + Number(Transferencias8.value) + Number(amalfi8.value) + Number(cartao8.value) + Number(diarista8.value) + Number(manutencao8.value) + Number(emprestimo8.value) + Number(saques8.value) + Number(Outros8.value)}`;
+            let agosto2 = naoEssenciais8.innerHTML = `R$${Number(academia8.value) + Number(estudos8.value) + Number(alimentoExtra8.value) + Number(celular8.value) + Number(assinaturas8.value) + Number(entreterimento8.value) + Number(dentista8.value) + Number(mae8.value) + Number(OutroS8.value)}`;
+            totalReservado8.innerHTML = `R$${Number(montante8.value) + Number(totalInvestido8.value) + Number(TotalInvestido8.value)}`;
+            totalGasto8.innerHTML = `R$${Number(agosto1.split('R$')[1]) + Number(agosto2.split('R$')[1])}`;
+            sobraMensal8.innerHTML = `R$${Number(agosto.split('R$')[1]) - Number(agosto1.split('R$')[1]) - Number(agosto2.split('R$')[1])}`;
+        }
+        
+        function setembro() {
+            let setembro = total9.innerHTML = `R$${Number(salario9.value) + Number(conjuge9.value) + Number(transferencias9.value) + Number(outros9.value)}`;
+            let setembro1 = essenciais9.innerHTML = `R$${Number(condominio9.value) + Number(aluguel9.value) + Number(transporte9.value) + Number(alimentacao9.value) + Number(luz9.value) + Number(agua9.value) + Number(internet9.value) + Number(Transferencias9.value) + Number(amalfi9.value) + Number(cartao9.value) + Number(diarista9.value) + Number(manutencao9.value) + Number(emprestimo9.value) + Number(saques9.value) + Number(Outros9.value)}`;
+            let setembro2 = naoEssenciais9.innerHTML = `R$${Number(academia9.value) + Number(estudos9.value) + Number(alimentoExtra9.value) + Number(celular9.value) + Number(assinaturas9.value) + Number(entreterimento9.value) + Number(dentista9.value) + Number(mae9.value) + Number(OutroS9.value)}`;
+            totalReservado9.innerHTML = `R$${Number(montante9.value) + Number(totalInvestido9.value) + Number(TotalInvestido9.value)}`;
+            totalGasto9.innerHTML = `R$${Number(setembro1.split('R$')[1]) + Number(setembro2.split('R$')[1])}`;
+            sobraMensal9.innerHTML = `R$${Number(setembro.split('R$')[1]) - Number(setembro1.split('R$')[1]) - Number(setembro2.split('R$')[1])}`;
+        }
+        
+        function outubro() {
+            let outubro = total10.innerHTML = `R$${Number(salario10.value) + Number(conjuge10.value) + Number(transferencias10.value) + Number(outros10.value)}`;
+            let outubro1 = essenciais10.innerHTML = `R$${Number(condominio10.value) + Number(aluguel10.value) + Number(transporte10.value) + Number(alimentacao10.value) + Number(luz10.value) + Number(agua10.value) + Number(internet10.value) + Number(Transferencias10.value) + Number(amalfi10.value) + Number(cartao10.value) + Number(diarista10.value) + Number(manutencao10.value) + Number(emprestimo10.value) + Number(saques10.value) + Number(Outros10.value)}`;
+            let outubro2 = naoEssenciais10.innerHTML = `R$${Number(academia10.value) + Number(estudos10.value) + Number(alimentoExtra10.value) + Number(celular10.value) + Number(assinaturas10.value) + Number(entreterimento10.value) + Number(dentista10.value) + Number(mae10.value) + Number(OutroS10.value)}`;
+            totalReservado10.innerHTML = `R$${Number(montante10.value) + Number(totalInvestido10.value) + Number(TotalInvestido10.value)}`;
+            totalGasto10.innerHTML = `R$${Number(outubro1.split('R$')[1]) + Number(outubro2.split('R$')[1])}`;
+            sobraMensal10.innerHTML = `R$${Number(outubro.split('R$')[1]) - Number(outubro1.split('R$')[1]) - Number(outubro2.split('R$')[1])}`;
+        }
+        
+        function novembro() {
+            let novembro = total11.innerHTML = `R$${Number(salario11.value) + Number(conjuge11.value) + Number(transferencias11.value) + Number(outros11.value)}`;
+            let novembro1 = essenciais11.innerHTML = `R$${Number(condominio11.value) + Number(aluguel11.value) + Number(transporte11.value) + Number(alimentacao11.value) + Number(luz11.value) + Number(agua11.value) + Number(internet11.value) + Number(Transferencias11.value) + Number(amalfi11.value) + Number(cartao11.value) + Number(diarista11.value) + Number(manutencao11.value) + Number(emprestimo11.value) + Number(saques11.value) + Number(Outros11.value)}`;
+            let novembro2 = naoEssenciais11.innerHTML = `R$${Number(academia11.value) + Number(estudos11.value) + Number(alimentoExtra11.value) + Number(celular11.value) + Number(assinaturas11.value) + Number(entreterimento11.value) + Number(dentista11.value) + Number(mae11.value) + Number(OutroS11.value)}`;
+            totalReservado11.innerHTML = `R$${Number(montante11.value) + Number(totalInvestido11.value) + Number(TotalInvestido11.value)}`;
+            totalGasto11.innerHTML = `R$${Number(novembro1.split('R$')[1]) + Number(novembro2.split('R$')[1])}`;
+            sobraMensal11.innerHTML = `R$${Number(novembro.split('R$')[1]) - Number(novembro1.split('R$')[1]) - Number(novembro2.split('R$')[1])}`;
+        }
+        
+        function dezembro() {
+            let dezembro = total12.innerHTML = `R$${Number(salario12.value) + Number(conjuge12.value) + Number(transferencias12.value) + Number(outros12.value)}`;
+            let dezembro1 = essenciais12.innerHTML = `R$${Number(condominio12.value) + Number(aluguel12.value) + Number(transporte12.value) + Number(alimentacao12.value) + Number(luz12.value) + Number(agua12.value) + Number(internet12.value) + Number(Transferencias12.value) + Number(amalfi12.value) + Number(cartao12.value) + Number(diarista12.value) + Number(manutencao12.value) + Number(emprestimo12.value) + Number(saques12.value) + Number(Outros12.value)}`;
+            let dezembro2 = naoEssenciais12.innerHTML = `R$${Number(academia12.value) + Number(estudos12.value) + Number(alimentoExtra12.value) + Number(celular12.value) + Number(assinaturas12.value) + Number(entreterimento12.value) + Number(dentista12.value) + Number(mae12.value) + Number(OutroS12.value)}`;
+            totalReservado12.innerHTML = `R$${Number(montante12.value) + Number(totalInvestido12.value) + Number(TotalInvestido12.value)}`;
+            totalGasto12.innerHTML = `R$${Number(dezembro1.split('R$')[1]) + Number(dezembro2.split('R$')[1])}`;
+            sobraMensal12.innerHTML = `R$${Number(dezembro.split('R$')[1]) - Number(dezembro1.split('R$')[1]) - Number(dezembro2.split('R$')[1])}`;
+        }
+        </script>
+</body>
+</html>
